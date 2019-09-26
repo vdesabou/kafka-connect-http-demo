@@ -10,3 +10,7 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+.classpath
+.factorypath
+.project
+.settings

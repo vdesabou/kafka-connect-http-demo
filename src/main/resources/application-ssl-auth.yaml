@@ -21,9 +21,9 @@ server:
     # The path to the keystore containing the certificate
     key-store: classpath:localhost-keystore.jks
     # The password used to generate the certificate
-    key-store-password: changeit
+    key-store-password: confluent
     # The alias mapped to the certificate
-    key-alias: localhost
+    key-alias: http-service-ssl-auth
 
 # Tell Spring Security (if used) to require requests over HTTPS
 security:

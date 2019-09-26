@@ -96,6 +96,5 @@ Notes:
 * _port `8443` is used instead of `8080`_
 * _Keystore was generated with this command:_
     ```bash
-     keytool -genkeypair -alias tomcat -keyalg RSA -keysize 2048 
-    -keystore keystore.jks -validity 3650
+     keytool -noprompt -genkeypair -alias http-service-ssl-auth -keyalg RSA -keysize 2048 -keystore localhost-keystore.jks -validity 3650 -storepass confluent -keypass confluent -dname "CN=confluent.io, OU=ID, O=CONFLUENT, L=John, S=Doe, C=GB" -ext SAN=dns:http-service-ssl-auth,dns:connect,dns:localhost
     ```
