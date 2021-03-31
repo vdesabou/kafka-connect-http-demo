@@ -32,7 +32,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Order(1)
 @Profile({"ssl-auth"})
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
 public class MTLSConfig extends WebSecurityConfigurerAdapter {
@@ -41,7 +41,9 @@ public class MTLSConfig extends WebSecurityConfigurerAdapter {
     .and()
     .x509()
     .subjectPrincipalRegex("CN=(.*?)(?:,|$)")
-    .userDetailsService(userDetailsServiceMTLS());
+    .userDetailsService(userDetailsServiceMTLS())
+    .and()
+    .csrf().disable();
   }
 
   @Bean
