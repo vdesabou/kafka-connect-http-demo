@@ -19,11 +19,19 @@ server:
     # The format used for the keystore
     key-store-type: JKS
     # The path to the keystore containing the certificate
-    key-store: classpath:localhost-keystore.jks
+    key-store: classpath:keystore.jks
     # The password used to generate the certificate
     key-store-password: confluent
+    key-password: confluent
     # The alias mapped to the certificate
     key-alias: http-service-ssl-auth
+    # add mtls
+    enabled: true
+    client-auth: need
+    # The path to the truststore containing the certificate
+    trust-store: classpath:truststore.jks
+    # The password used to generate the certificate
+    trust-store-password: confluent
 
 # Tell Spring Security (if used) to require requests over HTTPS
 security:

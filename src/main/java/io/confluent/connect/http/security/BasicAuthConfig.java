@@ -24,7 +24,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Order(1)
-@Profile({"basic-auth", "ssl-auth"})
+@Profile({"basic-auth"})
 @EnableWebSecurity
 @Configuration
 public class BasicAuthConfig extends WebSecurityConfigurerAdapter {

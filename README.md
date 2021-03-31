@@ -28,7 +28,7 @@ This app is useful in testing the HTTP Sink Connector.
     curl -X POST \
       http://localhost:8080/api/messages \
       -d message-goes-here
-      
+
     # get all messages
     curl -X POST http://localhost:8080/api/messages
     ```
@@ -48,7 +48,7 @@ This app is useful in testing the HTTP Sink Connector.
       http://localhost:8080/api/messages \
       -H 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='
       -d message-goes-here
-    
+
     # get all messages
     curl -X POST \
       http://localhost:8080/api/messages \
@@ -78,12 +78,12 @@ This app is useful in testing the HTTP Sink Connector.
       http://localhost:8080/api/messages \
       -H 'Authorization: Bearer {token}'
       -d message-goes-here
-      
+
     curl -X GET \
         http://localhost:8080/api/messages \
         -H 'Authorization: Bearer {token}'
     ```
-    
+
 ## SSL
 
 1. Set profile
@@ -94,7 +94,7 @@ This app is useful in testing the HTTP Sink Connector.
 
 Notes:
 * _port `8443` is used instead of `8080`_
-* _Keystore was generated with this command:_
+* _keystore.jks and _truststore.jks were generated with this command:_
     ```bash
-     keytool -noprompt -genkeypair -alias http-service-ssl-auth -keyalg RSA -keysize 2048 -keystore localhost-keystore.jks -validity 3650 -storepass confluent -keypass confluent -dname "CN=confluent.io, OU=ID, O=CONFLUENT, L=John, S=Doe, C=GB" -ext SAN=dns:http-service-ssl-auth,dns:connect,dns:localhost
+     ./certs-create.sh
     ```

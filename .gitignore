@@ -14,3 +14,16 @@ HELP.md
 .factorypath
 .project
 .settings
+
+*.crt
+*.csr
+*_creds
+*.jks
+*.srl
+*.key
+*.req
+*.pem
+*.der
+*.p12
+extfile
+keyfile.json
