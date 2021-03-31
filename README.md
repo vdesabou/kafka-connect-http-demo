@@ -11,7 +11,8 @@ This app is useful in testing the HTTP Sink Connector.
 - Simple Auth (No Authentication) (Profile: `simple-auth`)
 - Basic Auth (Profile: `basic-auth`)
 - OAuth2 (Profile: `oauth2`)
-- SSL (Profile: `ssl-auth`)
+- SSL with Basic Auth (Profile: `ssl-basic-auth`)
+- SSL with Mutual TLS Auth (Profile: `ssl-auth`)
 
 ## Simple (No) Auth
 
