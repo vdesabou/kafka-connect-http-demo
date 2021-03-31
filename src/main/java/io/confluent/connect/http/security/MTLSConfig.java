@@ -49,7 +49,7 @@ public class MTLSConfig extends WebSecurityConfigurerAdapter {
       return new UserDetailsService() {
           @Override
           public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-              if (username.equals("http-service-ssl-auth")) {
+              if (username.equals("http-service-mtls-auth")) {
                   return new User(username, "", AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
               }
               throw new UsernameNotFoundException("User not found!");

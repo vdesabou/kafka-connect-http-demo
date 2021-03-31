@@ -24,7 +24,7 @@ server:
     key-store-password: confluent
     key-password: confluent
     # The alias mapped to the certificate
-    key-alias: http-service-ssl-auth
+    key-alias: http-service-mtls-auth
     # add mtls
     enabled: true
     client-auth: need

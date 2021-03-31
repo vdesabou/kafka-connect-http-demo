@@ -13,7 +13,7 @@ TAG=6.1.0
 # Generate CA key
 docker run -v $PWD:/tmp vdesabou/kafka-docker-playground-connect:${TAG} openssl req -new -x509 -keyout /tmp/snakeoil-ca-1.key -out /tmp/snakeoil-ca-1.crt -days 365 -subj '/CN=ca1.test.confluent.io/OU=TEST/O=CONFLUENT/L=PaloAlto/ST=Ca/C=US' -passin pass:confluent -passout pass:confluent
 
-for i in http-service-ssl-auth
+for i in http-service-mtls-auth
 do
     echo "------------------------------- $i -------------------------------"
 
@@ -75,3 +75,6 @@ EOF
     docker run -v $PWD:/tmp vdesabou/kafka-docker-playground-connect:${TAG} keytool -importkeystore -srckeystore /tmp/keystore.jks -destkeystore /tmp/$i.keystore.p12 -deststoretype PKCS12 -deststorepass confluent -srcstorepass confluent -noprompt
     docker run -v $PWD:/tmp vdesabou/kafka-docker-playground-connect:${TAG} openssl pkcs12 -in /tmp/$i.keystore.p12 -nodes -nocerts -out /tmp/$i.key -passin pass:confluent
 done
+
+cp keystore.jks src/main/resources/keystore.jks
+cp truststore.jks src/main/resources/truststore.jks
