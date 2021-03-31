@@ -37,7 +37,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @Configuration
 public class MTLSConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().anyRequest().authenticated()
+    http.antMatcher("/api/**").authorizeRequests().anyRequest().authenticated()
     .and()
     .x509()
     .subjectPrincipalRegex("CN=(.*?)(?:,|$)")
