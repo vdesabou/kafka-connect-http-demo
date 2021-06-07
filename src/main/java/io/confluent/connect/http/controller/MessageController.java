@@ -24,6 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
@@ -38,14 +39,20 @@ public class MessageController {
   }
 
   @PutMapping(path = "/api/messages")
-  public ResponseEntity putMessage(@RequestBody String message) {
+  public ResponseEntity putMessage(@RequestBody String message, @RequestHeader Map<String, String> headers) {
+    headers.forEach((key, value) -> {
+      log.info(String.format("Header '%s' = %s", key, value));
+    });
     return ResponseEntity
         .status(HttpStatus.CREATED)
         .body(save(message));
   }
 
   @PostMapping(path = "/api/messages")
-  public ResponseEntity createMessage(@RequestBody String message) {
+  public ResponseEntity createMessage(@RequestBody String message, @RequestHeader Map<String, String> headers) {
+    headers.forEach((key, value) -> {
+      log.info(String.format("Header '%s' = %s", key, value));
+    });
     return ResponseEntity
         .status(HttpStatus.CREATED)
         .body(save(message));
