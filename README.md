@@ -85,17 +85,32 @@ This app is useful in testing the HTTP Sink Connector.
         -H 'Authorization: Bearer {token}'
     ```
 
-## SSL
+## SSL with Basic auth
+
+1. Set profile
+    ```
+    SPRING_PROFILES_ACTIVE=ssl-basic-auth
+    ```
+2. Use certs with `http-service-ssl-basic-auth` names in root of project to call endpoints
+
+Notes:
+* _port `8443` is used instead of `8080`_
+* _keystore.http-service-ssl-basic-auth.jks and _truststore.http-service-ssl-basic-auth.jks were generated with this command:_
+    ```bash
+     ./certs-create.sh
+    ```
+
+## SSL with mutual TLS auth
 
 1. Set profile
     ```
     SPRING_PROFILES_ACTIVE=ssl-auth
     ```
-2. Use cert in root of project to call endpoints
+2. Use certs with `http-service-mtls-auth` names in root of project to call endpoints
 
 Notes:
 * _port `8443` is used instead of `8080`_
-* _keystore.jks and _truststore.jks were generated with this command:_
+* _keystore.http-service-mtls-auth.jks and _truststore.http-service-mtls-auth.jks were generated with this command:_
     ```bash
      ./certs-create.sh
     ```
