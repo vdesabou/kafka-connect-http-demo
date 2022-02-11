@@ -30,6 +30,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Message {
+  public Message(){}
+  
   public Message(String message) {
     this.message = message;
   }
