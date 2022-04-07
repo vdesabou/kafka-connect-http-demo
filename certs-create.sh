@@ -8,10 +8,10 @@
 # Cleanup files
 rm -f *.crt *.csr *_creds *.jks *.srl *.key *.pem *.der *.p12 extfile
 
-TAG=6.1.0
+TAG=7.0.2
 
 # Generate CA key
-docker run -v $PWD:/tmp vdesabou/kafka-docker-playground-connect:${TAG} openssl req -new -x509 -keyout /tmp/snakeoil-ca-1.key -out /tmp/snakeoil-ca-1.crt -days 365 -subj '/CN=ca1.test.confluent.io/OU=TEST/O=CONFLUENT/L=PaloAlto/ST=Ca/C=US' -passin pass:confluent -passout pass:confluent
+docker run -v $PWD:/tmp vdesabou/kafka-docker-playground-connect:${TAG} openssl req -new -x509 -keyout /tmp/snakeoil-ca-1.key -out /tmp/snakeoil-ca-1.crt -days 9999 -subj '/CN=ca1.test.confluent.io/OU=TEST/O=CONFLUENT/L=PaloAlto/ST=Ca/C=US' -passin pass:confluent -passout pass:confluent
 
 for i in http-service-mtls-auth http-service-ssl-basic-auth
 do
