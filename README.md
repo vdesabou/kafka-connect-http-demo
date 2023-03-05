@@ -114,3 +114,5 @@ Notes:
     ```bash
      ./certs-create.sh
     ```
+
+docker buildx build --push --tag vdesabou/nginx_proxy:latest -o type=image --platform=linux/arm64,linux/amd64 .
